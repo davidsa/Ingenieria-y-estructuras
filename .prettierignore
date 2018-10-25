@@ -1,0 +1,5 @@
+*.pug
+*.png
+build/
+.prettierignore
+.gitignore
