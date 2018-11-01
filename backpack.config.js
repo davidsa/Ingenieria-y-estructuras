@@ -1,10 +1,16 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
   webpack: (config, options, webpack) => {
-    const stylusLoader = {
-      test: /\.styl$/,
-      use: ['style-loader', 'css-loader', 'stylus-loader']
+    if (options.env === 'production') {
+      config.plugins.push(
+        new CopyWebpackPlugin([
+          { from: 'src/views/', to: 'src/views/' },
+          { from: 'src/styles/', to: 'src/styles/' },
+          { from: 'src/public/', to: 'src/public/' },
+        ])
+      )
     }
-    config.module.rules.push(stylusLoader)
     return config
   }
 }
