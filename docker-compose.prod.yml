@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  frontend-production:
+    container_name: IyE-frontend
+    build:
+      context: ./client
+      dockerfile: production.dockerfile
+    ports:
+      - 80:80

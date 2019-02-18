@@ -1,5 +1,13 @@
 *.pug
 *.png
-build/
+.svn
+*.env*
+build
+node_modules
+Dockerfile
 .prettierignore
 .gitignore
+.next
+*.lock
+*.conf
+*.dockerfile
