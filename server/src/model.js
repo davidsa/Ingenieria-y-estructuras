@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 
 const SALT = 10
 
@@ -13,14 +13,14 @@ const UserSchema = mongoose.Schema({
   password: { type: String, required: true }
 })
 
-UserSchema.pre('save', async next => {
+UserSchema.pre('save', function(next) {
   const user = this
   if (!user.isModified('password')) return next()
-  try {
-    user.password = await bcrypt.hash(user.password, SALT)
-  } catch (error) {
-    next(error)
-  }
+  bcrypt.hash(user.password, SALT, (err, hash) => {
+    if (err) return next(err)
+    user.password = hash
+    next()
+  })
 })
 
 UserSchema.methods.comparePassword = candidatePassword => {

@@ -12,4 +12,10 @@ export class AuthController {
     const token = await jwt.sign({ username }, SECRET)
     res.send(token)
   }
+
+  async register(username, password) {
+    const user = new User({ username, password })
+    await user.save()
+    console.log(`> User ${username} created`)
+  }
 }
