@@ -1,6 +1,6 @@
-import { GridSetup } from './database'
+import { GridSetup } from '../database'
 import mongoose from 'mongoose'
-import { ImageFile } from './model'
+import { ImageFile } from '../model'
 
 export class ImgController {
   async getImages(req, res, next) {
