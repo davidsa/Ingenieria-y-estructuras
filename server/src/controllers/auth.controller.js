@@ -10,7 +10,7 @@ export class AuthController {
     const isMatch = await user.comparePassword(password)
     if (!isMatch) throw new Error('Wrong username or password')
     const token = await jwt.sign({ username }, SECRET)
-    res.send(token)
+    res.send({ token })
   }
 
   async register(username, password) {
