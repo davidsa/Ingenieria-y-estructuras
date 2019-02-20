@@ -1,1 +1,2 @@
-export * from './centered.layout'
+export * from './Centered.layout'
+export * from './Grid.layout'

@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.header > * {
+  flex: 1;
+}
+
+.links {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}

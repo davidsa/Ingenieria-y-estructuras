@@ -6,8 +6,8 @@ export class ImgController {
   async getImages(req, res, next) {
     try {
       const metadata = await ImageFile.find()
-      const names = metadata.map(({ _id: id }) => id)
-      res.send({ names })
+      const ids = metadata.map(({ _id: id }) => id)
+      res.send({ ids })
     } catch (error) {
       next(error)
     }

@@ -1,12 +1,22 @@
 import React, { PureComponent } from 'react'
+import styles from './Header.component.module.css'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../constants'
 
 export class Header extends PureComponent {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
-    const { children } = this.props
-    return <div className="header">{children}</div>
+    return (
+      <div className={styles.header}>
+        <Link className={styles.links} to={ROUTES.home}>
+          Home
+        </Link>
+        <Link className={styles.links} to={ROUTES.gallery}>
+          Gallery
+        </Link>
+        <Link className={styles.links} to={ROUTES.admin}>
+          Admin
+        </Link>
+      </div>
+    )
   }
 }
