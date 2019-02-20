@@ -4,6 +4,5 @@
 }
 
 .grid > * {
-  flex: 1 0 1;
   cursor: pointer;
 }
