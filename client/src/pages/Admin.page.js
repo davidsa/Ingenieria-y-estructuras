@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { CenteredLayout } from '../layout'
 import { ImageService } from '../services'
+import { ROUTES } from '../constants'
 
 export class AdminPage extends PureComponent {
   state = {
@@ -19,9 +20,11 @@ export class AdminPage extends PureComponent {
     const { image } = this.state
     if (!image) return
     const service = new ImageService()
-    const response = await service.uploadImage(image)
-    console.log(response)
-    return false
+    const { message, redirect } = await service.uploadImage(image)
+    if (redirect) {
+      return this.props.history.push(ROUTES.login)
+    }
+    return console.log(message)
   }
 
   render() {

@@ -1,13 +1,14 @@
-require('@babel/register')
+require('@babel/register')({
+  presets: [['@babel/preset-env', { useBuiltIns: 'usage' }]]
+})
 const yargs = require('yargs')
 const AuthController = require('./controllers').AuthController
-const controller = new AuthController()
 const {
   argv: { username, password }
 } = yargs
 ;(async () => {
   try {
-    await controller.register(username, password)
+    await AuthController.register(username, password)
   } catch (error) {
     console.error(error)
   }

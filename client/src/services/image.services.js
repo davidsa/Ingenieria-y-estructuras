@@ -19,11 +19,21 @@ export class ImageService {
       method: 'POST',
       body: formData
     })
+      .then(res => {
+        if (!res.ok) throw res
+        return res.json()
+      })
+      .catch(this._handleError)
   }
 
   _handleError = res => {
-    return (
-      res.json && res.json().then(({ message }) => console.error(message()))
-    )
+    if (res.status === 500) {
+      return (
+        res.json && res.json().then(({ message }) => console.error(message))
+      )
+    }
+    if (res.status === 401) {
+      return { redirect: true }
+    }
   }
 }
