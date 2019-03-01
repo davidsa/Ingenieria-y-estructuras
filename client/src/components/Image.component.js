@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Image.component.module.css'
+import styles from './Image.component.module.scss'
 
 export function Image({ className, src, onImageClick }) {
   return (

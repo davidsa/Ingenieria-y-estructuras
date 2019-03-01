@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { ImageService } from '../services'
 import { GridLayout, CenteredLayout } from '../layout'
 import { Image } from '../components'
-import styles from './Gallery.page.module.css'
+import styles from './Gallery.page.module.scss'
 
 export class GalleryPage extends PureComponent {
   state = {

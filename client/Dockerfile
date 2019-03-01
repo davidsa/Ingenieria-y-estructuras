@@ -4,5 +4,5 @@ WORKDIR /client
 
 EXPOSE $PORT
 
-ENTRYPOINT ["yarn","start"]
+ENTRYPOINT ["yarn","docker-start"]
 

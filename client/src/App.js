@@ -3,12 +3,12 @@ import { Switch, Route } from 'react-router-dom'
 import { ROUTES } from './constants'
 import { AdminPage, HomePage, GalleryPage, LoginPage } from './pages'
 import { Header } from './components'
-import './App.css'
+import './App.scss'
 
 class App extends Component {
   render() {
     return (
-      <>
+      <div className="App">
         <Header />
         <Switch>
           <Route exact path={ROUTES.home} component={HomePage} />
@@ -16,7 +16,7 @@ class App extends Component {
           <Route exact path={ROUTES.gallery} component={GalleryPage} />
           <Route exact path={ROUTES.admin} component={AdminPage} />
         </Switch>
-      </>
+      </div>
     )
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './Centered.layout.module.css'
+import styles from './Centered.layout.module.scss'
 
-export function CenteredLayout({ children }) {
-  return <div className={styles.centered}>{children}</div>
+export function CenteredLayout({ children, className }) {
+  return <div className={`${styles.centered} ${className}`}>{children}</div>
 }

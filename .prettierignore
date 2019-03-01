@@ -1,9 +1,12 @@
 *.pug
 *.png
-.svn
+*.svg
+*.jpg
+*.jpeg
 *.env*
 build
 node_modules
+fonts
 Dockerfile
 .prettierignore
 .gitignore

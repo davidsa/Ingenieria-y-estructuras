@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styles from './Header.component.module.css'
+import styles from './Header.component.module.scss'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../constants'
 
@@ -8,13 +8,22 @@ export class Header extends PureComponent {
     return (
       <div className={styles.header}>
         <Link className={styles.links} to={ROUTES.home}>
-          Home
+          <h1>Inicio</h1>
+        </Link>
+        <Link className={styles.links} to="/">
+          <h1>Quiénes somos</h1>
+        </Link>
+        <Link className={styles.links} to="/">
+          <h1>Portafolio</h1>
         </Link>
         <Link className={styles.links} to={ROUTES.gallery}>
-          Gallery
+          <h1>Galería</h1>
+        </Link>
+        <Link className={styles.links} to={ROUTES.gallery}>
+          <h1>Contáctenos</h1>
         </Link>
         <Link className={styles.links} to={ROUTES.login}>
-          Login
+          <h1>Login</h1>
         </Link>
       </div>
     )
