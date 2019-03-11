@@ -26,5 +26,6 @@
     "not op_mini all"
   ],
   "proxy": "http://backend:3000/",
-  "homepage": "./"
+  "homepage": "./",
+  "devDependencies": {}
 }

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import styles from './Admin.page.module.scss'
 import { CenteredLayout } from '../layout'
 import { ImageService } from '../services'
 import { ROUTES } from '../constants'
@@ -30,13 +31,22 @@ export class AdminPage extends PureComponent {
   render() {
     return (
       <CenteredLayout>
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <label htmlFor="file">Upload file:</label> <br />
-            <input id="file" type="file" onChange={this.onFileChange} />
+        <form className={styles['admin-form']} onSubmit={this.onSubmit}>
+          <div className={styles['input-group']}>
+            <label className={styles.label} htmlFor="file">
+              Upload file:
+            </label>
+            <input
+              className={styles.fileInput}
+              id="file"
+              type="file"
+              onChange={this.onFileChange}
+            />
           </div>
           <CenteredLayout>
-            <input type="submit" />
+            <button className={styles['submit-button']} type="submit">
+              Submit
+            </button>
           </CenteredLayout>
         </form>
       </CenteredLayout>

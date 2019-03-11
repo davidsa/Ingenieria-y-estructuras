@@ -30,4 +30,14 @@ export class ImgController {
       next(error)
     }
   }
+
+  async deleteImage(req, res, next) {
+    try {
+      const { id } = req.params
+      const { model } = await GridSetup
+      model.unlinkById(mongoose.Types.ObjectId(id)).pipe(res)
+    } catch (error) {
+      next(error)
+    }
+  }
 }

@@ -1,0 +1,27 @@
+@import '../styles/colors';
+@import '../styles/form';
+
+$border-radius: 5px;
+
+.login-form {
+  @extend %form;
+}
+
+.login-item {
+  display: block;
+  margin-bottom: 15px;
+  padding: 5px;
+  border: none;
+  border-radius: $border-radius;
+  font-family: norms, serif;
+  font-size: 16px;
+  background-color: $secondary-color;
+  color: white;
+  &::placeholder {
+    color: white;
+  }
+}
+
+.login-button {
+  @extend %submit-button;
+}

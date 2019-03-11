@@ -1,6 +1,7 @@
 node_modules/
 /.idea/
 build/
+db/
 *.log
 .env
 .DS_Store

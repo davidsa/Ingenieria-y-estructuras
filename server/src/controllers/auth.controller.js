@@ -28,6 +28,15 @@ export class AuthController {
     return jwt.sign(payload, process.env.SECRET, { expiresIn: '7 days' })
   }
 
+  static me(req, res, next) {
+    const { username } = req.locals
+    try {
+      res.send({ status: 'ok', username })
+    } catch (error) {
+      next(error)
+    }
+  }
+
   static async register(username, password) {
     const user = new User({ username, password })
     await user.save()

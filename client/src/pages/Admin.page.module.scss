@@ -1,0 +1,22 @@
+@import '../styles/form';
+
+.admin-form {
+  @extend %form;
+}
+
+.submit-button {
+  @extend %submit-button;
+}
+
+.input-group {
+  color: white;
+  font-family: norms, serif;
+  font-size: 16px;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.fileInput {
+}

@@ -5,6 +5,7 @@
 *.jpeg
 *.env*
 build
+db
 node_modules
 fonts
 Dockerfile

@@ -1,0 +1,20 @@
+@import 'colors';
+@import 'variables';
+
+%form {
+  padding: 30px;
+  border-radius: $border-radius;
+  background-color: $tertiary-color;
+}
+
+%submit-button {
+  border: none;
+  border-radius: $border-radius;
+  padding: 5px;
+  width: 50px;
+  font-family: brandon, serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: $primary-color;
+  background-color: transparent;
+}

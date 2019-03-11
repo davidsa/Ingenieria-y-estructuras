@@ -19,7 +19,7 @@ export class Header extends PureComponent {
         <Link className={styles.links} to={ROUTES.gallery}>
           <h1>Galería</h1>
         </Link>
-        <Link className={styles.links} to={ROUTES.gallery}>
+        <Link className={styles.links} to={ROUTES.contactUs}>
           <h1>Contáctenos</h1>
         </Link>
         <Link className={styles.links} to={ROUTES.login}>

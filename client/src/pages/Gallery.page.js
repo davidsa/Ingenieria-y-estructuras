@@ -39,9 +39,7 @@ export class GalleryPage extends PureComponent {
     const { selectedId } = this.state
     return (
       <div>
-        <CenteredLayout>
-          <h1>Gallery</h1>
-        </CenteredLayout>
+        <h1>Gallery</h1>
         {selectedId && (
           <CenteredLayout>
             <Image

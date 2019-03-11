@@ -19,6 +19,13 @@ export class AuthService {
       .catch(this._handleError)
   }
 
+  me() {
+    return fetch(this.baseUrl + '/me').then(res => {
+      if (!res.ok) throw res
+      return res.json()
+    })
+  }
+
   _handleError = res => {
     return res.json && res.json().then(({ message }) => console.error(message))
   }

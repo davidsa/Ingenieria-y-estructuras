@@ -13,6 +13,8 @@ services:
     image: mongo
     networks:
       - backend-network
+    volumes:
+      - './db:/data/db'
 
   frontend:
     container_name: frontend
