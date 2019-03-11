@@ -35,7 +35,12 @@ export class ImgController {
     try {
       const { id } = req.params
       const { model } = await GridSetup
-      model.unlinkById(mongoose.Types.ObjectId(id)).pipe(res)
+      model.unlinkById(mongoose.Types.ObjectId(id), err => {
+        if (err) {
+          next(err)
+        }
+        res.send({ status: 'ok', message: `${id} deleted` })
+      })
     } catch (error) {
       next(error)
     }
