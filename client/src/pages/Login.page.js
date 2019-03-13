@@ -11,10 +11,12 @@ export class LoginPage extends PureComponent {
   }
 
   async componentDidMount() {
+    const { onLogin } = this.props
     try {
       const service = new AuthService()
       const { username } = await service.me()
       if (username) {
+        onLogin()
         this.props.history.push(ROUTES.admin)
       }
     } catch (error) {}
@@ -28,10 +30,14 @@ export class LoginPage extends PureComponent {
   handleSubmit = async event => {
     event.preventDefault()
     const service = new AuthService()
-    const { username, password } = this.state
+    const {
+      state: { username, password },
+      props: { onLogin }
+    } = this
     if (!username || !password) return
     const { status } = await service.login(username, password)
     if (status && status === 'ok') {
+      onLogin()
       this.props.history.push(ROUTES.admin)
     }
   }

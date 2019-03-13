@@ -7,12 +7,17 @@ import { imagenContactenos, imagenInicio } from './assets'
 import './App.scss'
 
 class App extends Component {
+  state = { isAdmin: false }
   static getBackgroundProperties(svg) {
     return {
       backgroundImage: `url(${svg})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'cover'
     }
+  }
+
+  handleLogIn = () => {
+    this.setState({ isAdmin: true })
   }
 
   getPageStyle() {
@@ -30,15 +35,26 @@ class App extends Component {
   }
 
   render() {
+    const { isAdmin } = this.state
     return (
       <div className="App" style={this.getPageStyle()}>
         <Header />
         <Switch>
           <Route exact path={ROUTES.home} component={HomePage} />
           <Route exact path={ROUTES.contactUs} component={ContactUs} />
-          <Route exact path={ROUTES.gallery} component={GalleryPage} />
+          <Route
+            exact
+            path={ROUTES.gallery}
+            render={props => <GalleryPage isAdmin={isAdmin} {...props} />}
+          />
           <Route exact path={ROUTES.admin} component={AdminPage} />
-          <Route exact path={ROUTES.login} component={LoginPage} />
+          <Route
+            exact
+            path={ROUTES.login}
+            render={props => (
+              <LoginPage onLogin={this.handleLogIn} {...props} />
+            )}
+          />
         </Switch>
       </div>
     )

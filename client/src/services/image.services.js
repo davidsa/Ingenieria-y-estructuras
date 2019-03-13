@@ -26,6 +26,15 @@ export class ImageService {
       .catch(this._handleError)
   }
 
+  deleteImage(id) {
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: 'DELETE'
+    }).then(res => {
+      if (!res.ok) throw res
+      return res.json()
+    })
+  }
+
   _handleError = res => {
     if (res.status === 500) {
       return (

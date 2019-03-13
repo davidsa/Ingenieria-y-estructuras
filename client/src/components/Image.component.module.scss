@@ -3,10 +3,18 @@
   height: 50px;
   background-color: black;
   display: flex;
+  position: relative;
 }
 
 .image {
   width: auto;
   height: 100%;
   margin: auto;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 }

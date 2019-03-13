@@ -27,5 +27,7 @@
   ],
   "proxy": "http://backend:3000/",
   "homepage": "./",
-  "devDependencies": {}
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2"
+  }
 }

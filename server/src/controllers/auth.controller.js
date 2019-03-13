@@ -10,7 +10,7 @@ export class AuthController {
       const { username, password } = req.body
       const user = await User.findOne({ username })
       if (!user) {
-        return res.status(401).send({ message: LOGIN_SUCCESSFUL })
+        return res.status(401).send({ message: WRONG_USER })
       }
       const isMatch = await user.comparePassword(password)
       if (!isMatch) {

@@ -3,6 +3,7 @@ import { ImageService } from '../services'
 import { GridLayout, CenteredLayout } from '../layout'
 import { Image } from '../components'
 import styles from './Gallery.page.module.scss'
+import { ROUTES } from '../constants'
 
 export class GalleryPage extends PureComponent {
   state = {
@@ -10,7 +11,24 @@ export class GalleryPage extends PureComponent {
     selectedId: null
   }
 
+  handleDelete = async id => {
+    try {
+      const service = new ImageService()
+      const result = await service.deleteImage(id)
+      console.log('delete result: ', result)
+      this.fetchImages()
+    } catch (error) {
+      this.props.history.push(ROUTES.login)
+    }
+  }
+
   async componentDidMount() {
+    const { isAdmin } = this.props
+    console.log('isAdmin: ', isAdmin)
+    this.fetchImages()
+  }
+
+  async fetchImages() {
     const service = new ImageService()
     const { ids } = await service.getImages()
     this.setState({ ids, selectedId: ids[0] })
@@ -36,7 +54,10 @@ export class GalleryPage extends PureComponent {
   }
 
   render() {
-    const { selectedId } = this.state
+    const {
+      state: { selectedId },
+      props: { isAdmin }
+    } = this
     return (
       <div>
         <h1>Gallery</h1>
@@ -45,6 +66,11 @@ export class GalleryPage extends PureComponent {
             <Image
               className={styles['selected-image']}
               src={GalleryPage.getImageUrl(selectedId)}
+              showClose={isAdmin}
+              onClose={e => {
+                console.log('being called')
+                this.handleDelete(selectedId)
+              }}
             />
           </CenteredLayout>
         )}
