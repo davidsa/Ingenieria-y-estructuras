@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { ROUTES } from './constants'
-import { AdminPage, HomePage, GalleryPage, LoginPage, ContactUs } from './pages'
+import {
+  AdminPage,
+  HomePage,
+  GalleryPage,
+  LoginPage,
+  ContactUs,
+  WhoWeAre,
+  Portfolio
+} from './pages'
 import { Header } from './components'
-import { imagenContactenos, imagenInicio } from './assets'
+import { contactenos, principal, quienesSomos, diseno } from './assets'
 import './App.scss'
 
 class App extends Component {
@@ -25,11 +33,13 @@ class App extends Component {
       location: { pathname }
     } = this.props
     const styles = {
-      '/': {
-        ...App.getBackgroundProperties(imagenInicio),
-        backgroundImage: `linear-gradient( rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${imagenInicio})`
+      [ROUTES.home]: {
+        ...App.getBackgroundProperties(principal),
+        backgroundImage: `linear-gradient( rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${principal})`
       },
-      '/contactUs': App.getBackgroundProperties(imagenContactenos)
+      [ROUTES.contactUs]: App.getBackgroundProperties(contactenos),
+      [ROUTES.whoWeARe]: App.getBackgroundProperties(quienesSomos),
+      [ROUTES.portfolio]: App.getBackgroundProperties(diseno)
     }
     return styles[pathname]
   }
@@ -41,7 +51,9 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path={ROUTES.home} component={HomePage} />
+          <Route exact path={ROUTES.whoWeARe} component={WhoWeAre} />
           <Route exact path={ROUTES.contactUs} component={ContactUs} />
+          <Route exact path={ROUTES.portfolio} component={Portfolio} />
           <Route
             exact
             path={ROUTES.gallery}

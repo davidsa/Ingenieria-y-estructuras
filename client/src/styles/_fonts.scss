@@ -9,11 +9,46 @@
 }
 
 @font-face {
+  font-family: 'grotte-bold';
+  src: url('../fonts/Grotte-Bold.ttf');
+}
+
+@font-face {
   font-family: 'norms';
   src: url('../fonts/TTNorms-Regular.otf');
 }
 
 @font-face {
+  font-family: 'norms-light';
+  src: url('../fonts/TTNorms-Light.otf');
+}
+
+@font-face {
+  font-family: 'norms-bold';
+  src: url('../fonts/TTNorms-Bold.otf');
+}
+
+@font-face {
+  font-family: 'norms-thin';
+  src: url('../fonts/TTNorms-Thin.otf');
+}
+
+@font-face {
   font-family: 'brandon';
   src: url('../fonts/HVD Fonts - BrandonText-Regular.otf');
+}
+
+@font-face {
+  font-family: 'brandon-light';
+  src: url('../fonts/HVD Fonts - BrandonText-Light.otf');
+}
+
+@font-face {
+  font-family: 'brandon-bold';
+  src: url('../fonts/HVD Fonts - BrandonText-Bold.otf');
+}
+
+@font-face {
+  font-family: 'brandon-thin';
+  src: url('../fonts/HVD Fonts - BrandonText-Thin.otf');
 }
