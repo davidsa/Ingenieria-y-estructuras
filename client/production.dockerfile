@@ -12,7 +12,7 @@ FROM nginx
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=builder /client/build /client/build
+COPY --from=builder /client/build /var/www
 
 EXPOSE 80
 

@@ -1,6 +1,6 @@
 export { default as bodega } from './bodega.jpg'
 export { default as iconoBodega } from './iconoBodega.svg'
-export { default as diseno } from './diseño.jpg'
+export { default as diseno } from './diseno.jpg'
 export { default as escaleras } from './escaleras.jpg'
 export { default as logo } from './logo.svg'
 export { default as logoBlanco } from './logoblanco.svg'

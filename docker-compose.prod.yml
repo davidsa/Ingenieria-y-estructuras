@@ -2,9 +2,40 @@ version: '3'
 
 services:
   frontend-production:
-    container_name: IyE-frontend
+    container_name: IyE-frontend-production
     build:
       context: ./client
       dockerfile: production.dockerfile
+    networks:
+      - backend-network
     ports:
       - 80:80
+    tty: true
+
+  backend-production:
+    container_name: IyE-backend-production
+    env_file:
+      - './server/production.env'
+    build:
+      context: ./server
+      dockerfile: production.dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - backend-network
+    depends_on:
+      - mongodb-production
+    tty: true
+
+  mongodb-production:
+    container_name: IyE-mongo-production
+    image: mongo
+    networks:
+      - backend-network
+    volumes:
+      - './db:/data/db'
+    tty: true
+
+networks:
+  backend-network:
+    driver: bridge
