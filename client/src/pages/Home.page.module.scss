@@ -1,4 +1,7 @@
 @import '../styles/mixins';
+@import '../styles/colors';
+
+$icon: 50px;
 
 .home {
   @include fullBackground('../assets/principal.jpg');
@@ -6,4 +9,27 @@
 
 .logo {
   width: 700px;
+}
+
+.instagram {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-color: $secondary-color;
+  color: $quaternary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary-color;
+    color: black;
+  }
+}
+
+.icon {
+  font-size: 30px;
 }

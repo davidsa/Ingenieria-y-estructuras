@@ -8,6 +8,14 @@ export class HomePage extends PureComponent {
     return (
       <CenteredLayout className={styles.home}>
         <img className={styles.logo} src={logo} alt="" />
+        <a
+          className={styles.instagram}
+          href="https://www.instagram.com/ing_y_estru/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i className={`fab fa-instagram ${styles.icon}`} />
+        </a>
       </CenteredLayout>
     )
   }

@@ -7,6 +7,9 @@ services:
       context: ./server
     networks:
       - backend-network
+    depends_on:
+      - mongodb
+    restart: always
 
   mongodb:
     container_name: mongo
@@ -15,6 +18,7 @@ services:
       - backend-network
     volumes:
       - './db:/data/db'
+    restart: always
 
   frontend:
     container_name: frontend
@@ -22,6 +26,9 @@ services:
       context: ./client
     networks:
       - backend-network
+    restart: always
+    depends_on:
+      - backend
 
 networks:
   backend-network:
