@@ -1,3 +1,9 @@
+@import '../styles/mixins';
+
+.home {
+  @include fullBackground('../assets/principal.jpg');
+}
+
 .logo {
   width: 700px;
 }

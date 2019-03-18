@@ -6,7 +6,7 @@ import { logo } from '../assets'
 export class HomePage extends PureComponent {
   render() {
     return (
-      <CenteredLayout>
+      <CenteredLayout className={styles.home}>
         <img className={styles.logo} src={logo} alt="" />
       </CenteredLayout>
     )

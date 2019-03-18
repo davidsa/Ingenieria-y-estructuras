@@ -11,44 +11,20 @@ import {
   Portfolio
 } from './pages'
 import { Header } from './components'
-import { contactenos, principal, quienesSomos, diseno } from './assets'
-import './App.scss'
+import styles from './App.module.scss'
 
 class App extends Component {
   state = { isAdmin: false }
-  static getBackgroundProperties(svg) {
-    return {
-      backgroundImage: `url(${svg})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'cover'
-    }
-  }
 
   handleLogIn = () => {
     this.setState({ isAdmin: true })
   }
 
-  getPageStyle() {
-    const {
-      location: { pathname }
-    } = this.props
-    const styles = {
-      [ROUTES.home]: {
-        ...App.getBackgroundProperties(principal),
-        backgroundImage: `linear-gradient( rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${principal})`
-      },
-      [ROUTES.contactUs]: App.getBackgroundProperties(contactenos),
-      [ROUTES.whoWeARe]: App.getBackgroundProperties(quienesSomos),
-      [ROUTES.portfolio]: App.getBackgroundProperties(diseno)
-    }
-    return styles[pathname]
-  }
-
   render() {
     const { isAdmin } = this.state
     return (
-      <div className="App" style={this.getPageStyle()}>
-        <Header />
+      <div className={styles.App}>
+        <Header className={styles.header} />
         <Switch>
           <Route exact path={ROUTES.home} component={HomePage} />
           <Route exact path={ROUTES.whoWeARe} component={WhoWeAre} />

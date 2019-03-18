@@ -5,8 +5,9 @@ import { ROUTES } from '../constants'
 
 export class Header extends PureComponent {
   render() {
+    const { className } = this.props
     return (
-      <div className={styles.header}>
+      <div className={`${styles.header} ${className}`}>
         <Link className={styles.links} to={ROUTES.home}>
           <h1>Inicio</h1>
         </Link>
