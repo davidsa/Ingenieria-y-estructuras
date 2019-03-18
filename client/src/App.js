@@ -30,19 +30,19 @@ class App extends Component {
           <Route exact path={ROUTES.whoWeARe} component={WhoWeAre} />
           <Route exact path={ROUTES.contactUs} component={ContactUs} />
           <Route exact path={ROUTES.portfolio} component={Portfolio} />
-          {/*<Route*/}
-          {/*exact*/}
-          {/*path={ROUTES.gallery}*/}
-          {/*render={props => <GalleryPage isAdmin={isAdmin} {...props} />}*/}
-          {/*/>*/}
-          {/*<Route exact path={ROUTES.admin} component={AdminPage} />*/}
-          {/*<Route*/}
-          {/*exact*/}
-          {/*path={ROUTES.login}*/}
-          {/*render={props => (*/}
-          {/*<LoginPage onLogin={this.handleLogIn} {...props} />*/}
-          {/*)}*/}
-          {/*/>*/}
+          <Route
+            exact
+            path={ROUTES.gallery}
+            render={props => <GalleryPage isAdmin={isAdmin} {...props} />}
+          />
+          <Route exact path={ROUTES.admin} component={AdminPage} />
+          <Route
+            exact
+            path={ROUTES.login}
+            render={props => (
+              <LoginPage onLogin={this.handleLogIn} {...props} />
+            )}
+          />
         </Switch>
       </div>
     )

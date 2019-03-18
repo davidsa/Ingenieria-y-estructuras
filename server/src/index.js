@@ -1,4 +1,3 @@
-import {} from 'dotenv/config'
 import express from 'express'
 import path from 'path'
 import morgan from 'morgan'
@@ -19,9 +18,14 @@ app.use(errorHandler)
 
 const port = process.env.PORT || 3000
 
-connection.then(() => {
+connection.once('open', () => {
   console.log('database connected')
   app.listen(port, () => {
     console.log(`> Server running on port ${port}`)
   })
+})
+
+process.on('unhandledRejection', (reason, p) => {
+  console.log('Unhandled Rejection at: Promise', p, 'reason:', reason)
+  // application specific logging, throwing an error, or other logic here
 })

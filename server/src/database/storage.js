@@ -1,7 +1,7 @@
 import GridFSStorage from 'multer-gridfs-storage'
-import { connection } from './db'
+import { connect } from './db'
 
 export const storage = new GridFSStorage({
-  db: connection,
+  db: connect,
   file: (req, file) => ({ bucketName: 'images', filename: file.originalname })
 })

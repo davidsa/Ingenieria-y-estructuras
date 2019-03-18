@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import { connection } from './db'
 
 export const GridSetup = new Promise(resolve => {
-  connection.then(() => {
+  connection.once('open', () => {
     const GridFs = gridfs({
       collection: 'images',
       model: 'Images',

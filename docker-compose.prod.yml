@@ -2,18 +2,21 @@ version: '3'
 
 services:
   frontend-production:
-    container_name: IyE-frontend-production
+    container_name: frontend
     build:
       context: ./client
       dockerfile: production.dockerfile
     networks:
       - backend-network
+    depends_on:
+      - backend-production
     ports:
       - 80:80
     tty: true
+    restart: always
 
   backend-production:
-    container_name: IyE-backend-production
+    container_name: backend
     env_file:
       - './server/production.env'
     build:
@@ -26,15 +29,17 @@ services:
     depends_on:
       - mongodb-production
     tty: true
+    restart: always
 
   mongodb-production:
-    container_name: IyE-mongo-production
+    container_name: mongo
     image: mongo
     networks:
       - backend-network
     volumes:
       - './db:/data/db'
     tty: true
+    restart: always
 
 networks:
   backend-network:

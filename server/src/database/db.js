@@ -1,7 +1,9 @@
 import mongoose from 'mongoose'
 
-export const connection = mongoose
-  .connect('mongodb://mongo/iye', {
-    useNewUrlParser: true
-  })
-  .catch(err => console.error(err))
+export const connect = mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true
+})
+
+export const connection = mongoose.connection
+
+connection.on('error', err => console.error('Database error: ', err))
