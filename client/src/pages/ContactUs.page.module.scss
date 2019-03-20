@@ -1,7 +1,7 @@
 @import '../styles/colors';
 @import '../styles/mixins';
+@import '../styles/variables';
 
-$name-size: 20px;
 $block-height: 10px;
 
 .contact {
@@ -11,26 +11,35 @@ $block-height: 10px;
 }
 
 .contact-container {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   p {
     font-family: norms-light, serif;
+    font-size: 14pt;
+  }
+
+  .name {
+    font-size: 14pt;
+    font-family: norms-bold, serif !important;
   }
 }
 
 .container {
   text-align: center;
   background-color: rgba($tertiary-color, 0.7);
-  padding: 30px 60px;
-  margin-top: 130px;
+  padding: 15px;
+  margin-top: 90px;
+  @media screen and (min-width: $tablet) {
+    margin-top: auto;
+    padding: 60px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 90px;
+  }
 }
 
 .special {
   display: flex;
-}
-
-.name {
-  font-size: $name-size;
-  font-family: norms-bold, serif !important;
 }
 
 .block {
@@ -54,8 +63,10 @@ $block-height: 10px;
 }
 
 .logo {
-  width: 150px;
-  height: 100px;
+  height: 70px;
   transform: translateX(-15%);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  @media screen and (min-width: $tablet) {
+    height: 120px;
+  }
 }

@@ -1,4 +1,5 @@
 @import '../styles/colors';
+@import '../styles/variables';
 
 .header {
   display: flex;
@@ -14,8 +15,12 @@
 .links {
   text-align: center;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 8px;
   h1 {
     color: white;
+  }
+
+  @media screen and (min-width: 800px) {
+    font-size: 12px;
   }
 }

@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .portfolio {
   color: white;
 }
@@ -7,6 +9,7 @@
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .right {
@@ -19,22 +22,42 @@
 
 .second-slide {
   background-color: rgba(black, 0.7);
-  margin-left: 55%;
+  @media screen and (min-width: $tablet) {
+    margin-left: 25%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 55%;
+  }
 }
 
 .third-slide {
-  background-color: white;
-  margin-right: 55%;
-  color: black;
+  background-color: rgba(black, 0.7);
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 55%;
+  }
 }
 
 .fourth-slide {
   background-color: rgba(black, 0.7);
-  margin-left: 10%;
-  margin-right: 40%;
+  @media screen and (min-width: $tablet) {
+    margin-right: 25%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 10%;
+    margin-right: 40%;
+  }
 }
 
 .fifth-slide {
   background-color: rgba(black, 0.7);
-  margin-left: 55%;
+  @media screen and (min-width: $tablet) {
+    margin-left: 25%;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 55%;
+  }
 }
