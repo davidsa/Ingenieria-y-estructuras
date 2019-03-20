@@ -1,9 +1,14 @@
+@import '../styles/variables';
+
 .container {
   display: flex;
 }
 
 .icon {
-  height: 50px;
+  height: 25px;
+  @media screen and (min-width: $tablet) {
+    height: 50px;
+  }
 }
 
 .right {

@@ -1,19 +1,30 @@
 .slide {
-  width: 500px;
+  width: 300px;
+
+  @media screen and (min-width: 800px) {
+    width: 500px;
+  }
 }
 
 .title {
   text-transform: uppercase;
   font-family: grotte-light, serif;
-  font-size: 30pt;
+  font-size: 20pt;
   margin: 40px 0;
+
+  @media screen and (min-width: 800px) {
+    font-size: 30pt;
+  }
 }
 
 .body {
   font-family: norms-light, serif;
-  font-size: 18pt;
+  font-size: 14pt;
   line-height: 1.3;
   margin-bottom: 30px;
+  @media screen and (min-width: 800px) {
+    font-size: 14pt;
+  }
 }
 
 .highlight {
