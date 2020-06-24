@@ -6,41 +6,41 @@ services:
     build:
       context: ./client
       dockerfile: production.dockerfile
-    networks:
-      - backend-network
-    depends_on:
-      - backend-production
+        #networks:
+        #- backend-network
+        #depends_on:
+        #- backend-production
     ports:
       - 80:80
     tty: true
     restart: always
 
-  backend-production:
-    container_name: backend
-    env_file:
-      - './server/production.env'
-    build:
-      context: ./server
-      dockerfile: production.dockerfile
-    ports:
-      - 3000:3000
-    networks:
-      - backend-network
-    depends_on:
-      - mongodb-production
-    tty: true
-    restart: always
-
-  mongodb-production:
-    container_name: mongo
-    image: mongo
-    networks:
-      - backend-network
-    volumes:
-      - './db:/data/db'
-    tty: true
-    restart: always
-
-networks:
-  backend-network:
-    driver: bridge
+# # backend-production:
+# #   container_name: backend
+# #   env_file:
+# #     - './server/production.env'
+# #   build:
+# #     context: ./server
+# #     dockerfile: production.dockerfile
+# #   ports:
+# #     - 3000:3000
+# #   networks:
+# #     - backend-network
+# #   depends_on:
+# #     - mongodb-production
+# #   tty: true
+# #   restart: always
+##
+# # mongodb-production:
+# #   container_name: mongo
+# #   image: mongo
+# #   networks:
+# #     - backend-network
+# #   volumes:
+# #     - './db:/data/db'
+# #   tty: true
+# #   restart: always
+##
+#n#etworks:
+# # backend-network:
+# #   driver: bridge
